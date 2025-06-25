@@ -1,0 +1,12 @@
+{
+  "name": "hoc-tu-moi-ngay",
+  "version": "1.0.0",
+  "description": "Ứng dụng ghi chú từ vựng",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build",
+    "start": "vercel start"
+  },
+  "license": "MIT",
+  "private": true
+}
