@@ -8,5 +8,8 @@
     "start": "vercel start"
   },
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "vercel": "^44.2.3"
+  }
 }
