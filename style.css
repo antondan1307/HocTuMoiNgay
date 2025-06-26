@@ -131,6 +131,21 @@ button:hover {
     white-space: nowrap;
 }
 
+#notification button {
+    background-color: #8FBC8F;
+    border: none;
+    color: #2E8B57;
+    margin-left: 10px;
+    padding: 2px 8px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#notification button:hover {
+    background-color: #2E8B57;
+    color: #F0FFF0;
+}
+
 #notification.show {
     transform: translate(-50%, 0);
     opacity: 1;

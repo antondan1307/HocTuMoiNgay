@@ -17,6 +17,40 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 3000);
     }
 
+    function showConfirm(msg, callback) {
+        if (!notification) return;
+        notification.innerHTML = `${msg} <button id="confirm-yes">Có</button> <button id="confirm-no">Không</button>`;
+        notification.className = 'notification show';
+
+        function cleanup() {
+            notification.classList.remove('show');
+            notification.innerHTML = '';
+        }
+
+        const yesBtn = document.getElementById('confirm-yes');
+        const noBtn = document.getElementById('confirm-no');
+        if (yesBtn) {
+            yesBtn.addEventListener(
+                'click',
+                () => {
+                    cleanup();
+                    callback(true);
+                },
+                { once: true }
+            );
+        }
+        if (noBtn) {
+            noBtn.addEventListener(
+                'click',
+                () => {
+                    cleanup();
+                    callback(false);
+                },
+                { once: true }
+            );
+        }
+    }
+
     function updateHeading() {
         if (!heading) return;
         if (window.innerWidth <= 600) {
@@ -78,18 +112,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const target = e.target;
         if (target.classList.contains('delete-note')) {
             const word = target.getAttribute('data-word');
-            const confirmed = confirm(
-                `Bạn có chắc muốn xoá từ "${word}" không?`
-            );
-            if (!confirmed) return;
+            showConfirm(`Bạn có chắc muốn xoá từ "${word}" không?`, (ok) => {
+                if (!ok) return;
 
-            let notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
-            notes = notes.filter(
-                (n) => n.englishWord.toLowerCase() !== word.toLowerCase()
-            );
-            localStorage.setItem('vocabNotes', JSON.stringify(notes));
-            renderNotes(searchInput ? searchInput.value.trim() : '');
-            showNotification('Đã xoá ghi chú!', 'success');
+                let notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
+                notes = notes.filter(
+                    (n) => n.englishWord.toLowerCase() !== word.toLowerCase()
+                );
+                localStorage.setItem('vocabNotes', JSON.stringify(notes));
+                renderNotes(searchInput ? searchInput.value.trim() : '');
+                showNotification('Đã xoá ghi chú!', 'success');
+            });
         }
     });
 
