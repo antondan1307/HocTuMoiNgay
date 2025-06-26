@@ -206,7 +206,7 @@ button:hover {
 
 @media (max-width: 600px) {
     body {
-        padding: 0 15px;
+        padding: 0 10px;
     }
     h1 {
         font-size: 1.6em;
