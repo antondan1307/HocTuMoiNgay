@@ -78,12 +78,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const target = e.target;
         if (target.classList.contains('delete-note')) {
             const word = target.getAttribute('data-word');
+            const confirmed = confirm(
+                `Bạn có chắc muốn xoá từ "${word}" không?`
+            );
+            if (!confirmed) return;
+
             let notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
             notes = notes.filter(
                 (n) => n.englishWord.toLowerCase() !== word.toLowerCase()
             );
             localStorage.setItem('vocabNotes', JSON.stringify(notes));
             renderNotes(searchInput ? searchInput.value.trim() : '');
+            showNotification('Đã xoá ghi chú!', 'success');
         }
     });
 
