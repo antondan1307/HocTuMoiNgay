@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const list = document.getElementById('notes-list');
     const searchInput = document.getElementById('search');
     const notification = document.getElementById('notification');
-    const heading = document.querySelector('h1');
     if (!form || !list) return;
 
     function showNotification(msg, type = 'success') {
@@ -51,14 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function updateHeading() {
-        if (!heading) return;
-        if (window.innerWidth <= 600) {
-            heading.textContent = 'Ghi chú Từ Vựng Tiếng Anh';
-        } else {
-            heading.textContent = 'Ứng dụng Ghi chú Từ vựng';
-        }
-    }
 
     // Render saved notes to the list
     function renderNotes(filter = '') {
@@ -99,8 +90,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     renderNotes();
-    updateHeading();
-    window.addEventListener('resize', updateHeading);
 
     if (searchInput) {
         searchInput.addEventListener('input', function (e) {
