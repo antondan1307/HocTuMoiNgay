@@ -102,7 +102,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (target.classList.contains('delete-note')) {
             const word = target.getAttribute('data-word');
             const li = target.closest('li');
+            if (li) li.classList.add('highlight-delete');
             showConfirm(`Bạn có chắc muốn xóa từ "${word}" không?`, (ok) => {
+                if (li) li.classList.remove('highlight-delete');
                 if (!ok || !li) return;
 
                 li.classList.add('fade-out');
