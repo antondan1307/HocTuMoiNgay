@@ -218,7 +218,17 @@ button:hover {
 
 @media (max-width: 600px) {
     body {
-    /* Adjust sticker layout for small screens */
+        padding: 20px 15px 0;
+        justify-content: flex-start;
+    form,
+    #saved-notes {
+        max-width: 100%;
+    }
+    input,
+    textarea,
+    button {
+        font-size: 14px;
+    }
         width: 40px;
         height: 40px;
     .sticker-book {
