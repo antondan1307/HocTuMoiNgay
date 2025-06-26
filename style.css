@@ -102,10 +102,11 @@ button:hover {
     border: 1px solid #e74c3c;
     color: #e74c3c;
     margin-left: 10px;
-    padding: 2px 6px;
+    padding: 2px 8px;
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 9999px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
 }
 
 .delete-note:hover {
