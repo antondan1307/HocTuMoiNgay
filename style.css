@@ -222,7 +222,7 @@ button:hover {
     }
     #notification {
         font-size: 14px;
-        with: calc(100% - 20px);
+        width: calc(100% - 20px);
     }
 
     /* Move stickers to top and bottom on small screens */
