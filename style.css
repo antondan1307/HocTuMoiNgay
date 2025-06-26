@@ -140,3 +140,10 @@ button:hover {
 #notification.error {
     color: #c0392b;
 }
+
+@media (max-width: 600px) {
+    body {
+        padding: 0 15px;
+    }
+}
+
