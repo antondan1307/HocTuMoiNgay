@@ -9,8 +9,7 @@ body {
         url('https://png.pngtree.com/background/20210716/original/pngtree-white-abstract-vector-web-background-design-picture-image_1354906.jpg')
             center / cover no-repeat fixed,
         linear-gradient(135deg, #F0FFF0, #B2E9DA, #D2F4EA);
-    background-size: cover, 400% 400%;
-    animation: gradient 15s ease infinite;
+    background-size: cover, cover;
     color: #556B2F;
     margin: 0;
 }
@@ -48,17 +47,6 @@ body {
     }
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
 
 form {
     max-width: 400px;
