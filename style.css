@@ -220,5 +220,20 @@ button:hover {
     #notification {
         font-size: 12px;
     }
+
+    /* Move stickers to top and bottom on small screens */
+    .sticker {
+        left: 50%;
+        animation: none;
+    }
+    .sticker-left {
+        top: 10px;
+        transform: translateX(-50%);
+    }
+    .sticker-right {
+        top: auto;
+        bottom: 10px;
+        transform: translateX(-50%) scaleX(-1);
+    }
 }
 
