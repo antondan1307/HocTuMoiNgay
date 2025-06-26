@@ -36,3 +36,21 @@ button {
     padding: 8px 16px;
     font-size: 16px;
 }
+
+/* Saved notes section */
+#saved-notes {
+    margin-top: 30px;
+    max-width: 400px;
+    width: 100%;
+}
+
+#notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#notes-list li {
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+}

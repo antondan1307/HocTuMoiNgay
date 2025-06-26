@@ -2,7 +2,23 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form');
-    if (!form) return;
+    const list = document.getElementById('notes-list');
+    if (!form || !list) return;
+
+    // Render saved notes to the list
+    function renderNotes() {
+        const notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
+        list.innerHTML = '';
+        notes.forEach((note) => {
+            const item = document.createElement('li');
+            item.innerHTML =
+                `<strong>${note.englishWord}</strong> - ${note.vietnameseMeaning}` +
+                (note.usageExample ? `<br><em>${note.usageExample}</em>` : '');
+            list.appendChild(item);
+        });
+    }
+
+    renderNotes();
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -26,5 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Optional: clear the form
         form.reset();
+
+        // Update the displayed notes
+        renderNotes();
     });
 });
