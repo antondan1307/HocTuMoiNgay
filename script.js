@@ -9,16 +9,28 @@ document.addEventListener('DOMContentLoaded', function () {
     function renderNotes() {
         const notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
         list.innerHTML = '';
-        notes.forEach((note) => {
+        notes.forEach((note, index) => {
             const item = document.createElement('li');
             item.innerHTML =
                 `<strong>${note.englishWord}</strong> - ${note.vietnameseMeaning}` +
-                (note.usageExample ? `<br><em>${note.usageExample}</em>` : '');
+                (note.usageExample ? `<br><em>${note.usageExample}</em>` : '') +
+                ` <button class="delete-note" data-index="${index}">Xóa</button>`;
             list.appendChild(item);
         });
     }
 
     renderNotes();
+
+    list.addEventListener('click', function (e) {
+        const target = e.target;
+        if (target.classList.contains('delete-note')) {
+            const index = parseInt(target.getAttribute('data-index'), 10);
+            const notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
+            notes.splice(index, 1);
+            localStorage.setItem('vocabNotes', JSON.stringify(notes));
+            renderNotes();
+        }
+    });
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
