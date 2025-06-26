@@ -7,17 +7,28 @@ document.addEventListener('DOMContentLoaded', function () {
     const notification = document.getElementById('notification');
     if (!form || !list) return;
 
+    let notificationTimeout;
+
     function showNotification(msg, type = 'success') {
         if (!notification) return;
+        if (notificationTimeout) {
+            clearTimeout(notificationTimeout);
+            notificationTimeout = null;
+        }
         notification.textContent = msg;
         notification.className = `notification ${type} show`;
-        setTimeout(() => {
+        notificationTimeout = setTimeout(() => {
             notification.classList.remove('show');
+            notificationTimeout = null;
         }, 3000);
     }
 
     function showConfirm(msg, callback) {
         if (!notification) return;
+        if (notificationTimeout) {
+            clearTimeout(notificationTimeout);
+            notificationTimeout = null;
+        }
         notification.innerHTML = `${msg} <button id="confirm-yes">Có</button> <button id="confirm-no">Không</button>`;
         notification.className = 'notification show';
 
