@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
             item.innerHTML =
                 `<strong>${note.englishWord}</strong> - ${note.vietnameseMeaning}` +
                 (note.usageExample ? `<br><em>${note.usageExample}</em>` : '') +
+                (note.savedAt ? `<br><small class="note-time">${note.savedAt}</small>` : '') +
                 ` <button class="delete-note" data-index="${index}">Xóa</button>`;
             list.appendChild(item);
         });
@@ -46,7 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // Retrieve existing notes from localStorage or create an empty array
         const notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
         // Add the new note
-        notes.push({ englishWord, vietnameseMeaning, usageExample });
+        notes.push({
+            englishWord,
+            vietnameseMeaning,
+            usageExample,
+            savedAt: new Date().toLocaleString('vi-VN'),
+        });
         // Save back to localStorage
         localStorage.setItem('vocabNotes', JSON.stringify(notes));
 
