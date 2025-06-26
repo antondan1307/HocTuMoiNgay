@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const target = e.target;
         if (target.classList.contains('delete-note')) {
             const word = target.getAttribute('data-word');
-            showConfirm(`Bạn có chắc muốn xoá từ "${word}" không?`, (ok) => {
+            showConfirm(`Bạn có chắc muốn xóa từ "${word}" không?`, (ok) => {
                 if (!ok) return;
 
                 let notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 );
                 localStorage.setItem('vocabNotes', JSON.stringify(notes));
                 renderNotes(searchInput ? searchInput.value.trim() : '');
-                showNotification('Đã xoá ghi chú!', 'success');
+                showNotification('Đã xóa ghi chú!', 'success');
             });
         }
     });
