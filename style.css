@@ -110,3 +110,18 @@ button:hover {
     font-size: 12px;
     margin-left: 5px;
 }
+
+#notification {
+    display: none;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+#notification.success {
+    color: #2E8B57;
+}
+
+#notification.error {
+    color: #c0392b;
+}

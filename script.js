@@ -4,7 +4,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form');
     const list = document.getElementById('notes-list');
     const searchInput = document.getElementById('search');
+    const notification = document.getElementById('notification');
     if (!form || !list) return;
+
+    function showNotification(msg, type = 'success') {
+        if (!notification) return;
+        notification.textContent = msg;
+        notification.className = `notification ${type}`;
+        notification.style.display = 'block';
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 3000);
+    }
 
     // Render saved notes to the list
     function renderNotes(filter = '') {
@@ -77,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
             (n) => n.englishWord.toLowerCase() === englishWord.toLowerCase()
         );
         if (exists) {
-            alert('Từ này đã được lưu rồi!');
+            showNotification('Từ này đã được lưu rồi!', 'error');
             return;
         }
 
@@ -92,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Save back to localStorage
         localStorage.setItem('vocabNotes', JSON.stringify(notes));
 
-        alert('Đã lưu ghi chú!');
+        showNotification('Đã lưu ghi chú!', 'success');
 
         // Optional: clear the form
         form.reset();
