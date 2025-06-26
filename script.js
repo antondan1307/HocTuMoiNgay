@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
             (n) => n.englishWord.toLowerCase() === englishWord.toLowerCase()
         );
         if (exists) {
-            showNotification('Từ này đã được lưu rồi!', 'error');
+            showNotification(`Từ "${englishWord}" đã được lưu rồi!`, 'error');
             return;
         }
 
