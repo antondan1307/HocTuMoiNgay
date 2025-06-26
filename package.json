@@ -2,9 +2,9 @@
   "name": "hoc-tu-moi-ngay",
   "version": "1.0.0",
   "description": "Ứng dụng ghi chú từ vựng",
-  "license": "MIT",
+    "build": "npx vercel build",
   "private": true,
-  "devDependencies": {
+  "dependencies": {
     "vercel": "^44.2.5"
   }
 }
