@@ -9,8 +9,22 @@ document.addEventListener('DOMContentLoaded', function () {
     // Render saved notes to the list
     function renderNotes(filter = '') {
         const notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
+
+        // Remove duplicate words and keep the first occurrence
+        const uniqueMap = new Map();
+        notes.forEach((n) => {
+            const key = n.englishWord.toLowerCase();
+            if (!uniqueMap.has(key)) {
+                uniqueMap.set(key, n);
+            }
+        });
+        const uniqueNotes = Array.from(uniqueMap.values());
+        if (uniqueNotes.length !== notes.length) {
+            localStorage.setItem('vocabNotes', JSON.stringify(uniqueNotes));
+        }
+
         list.innerHTML = '';
-        notes
+        uniqueNotes
             .filter((n) =>
                 n.englishWord.toLowerCase().includes(filter.toLowerCase())
             )
@@ -57,6 +71,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Retrieve existing notes from localStorage or create an empty array
         const notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
+
+        // Check for duplicates by English word
+        const exists = notes.some(
+            (n) => n.englishWord.toLowerCase() === englishWord.toLowerCase()
+        );
+        if (exists) {
+            alert('Từ này đã được lưu rồi!');
+            return;
+        }
+
         // Add the new note
         notes.push({
             englishWord,
@@ -64,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
             usageExample,
             savedAt: new Date().toLocaleDateString('vi-VN'),
         });
+
         // Save back to localStorage
         localStorage.setItem('vocabNotes', JSON.stringify(notes));
 
