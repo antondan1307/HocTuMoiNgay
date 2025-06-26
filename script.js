@@ -10,10 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function showNotification(msg, type = 'success') {
         if (!notification) return;
         notification.textContent = msg;
-        notification.className = `notification ${type}`;
-        notification.style.display = 'block';
+        notification.className = `notification ${type} show`;
         setTimeout(() => {
-            notification.style.display = 'none';
+            notification.classList.remove('show');
         }, 3000);
     }
 
