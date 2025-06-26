@@ -166,5 +166,8 @@ button:hover {
     h1 {
         font-size: 1.6em;
     }
+    #notification {
+        font-size: 12px;
+    }
 }
 
