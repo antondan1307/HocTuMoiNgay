@@ -28,25 +28,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 uniqueMap.set(key, n);
             }
         });
-        const uniqueNotes = Array.from(uniqueMap.values());
+        let uniqueNotes = Array.from(uniqueMap.values());
         if (uniqueNotes.length !== notes.length) {
             localStorage.setItem('vocabNotes', JSON.stringify(uniqueNotes));
         }
+
+        // Sort notes alphabetically by the English word
+        uniqueNotes = uniqueNotes.sort((a, b) =>
+            a.englishWord.localeCompare(b.englishWord, 'en', { sensitivity: 'base' })
+        );
 
         list.innerHTML = '';
         uniqueNotes
             .filter((n) =>
                 n.englishWord.toLowerCase().includes(filter.toLowerCase())
             )
-            .forEach((note, index) => {
-            const item = document.createElement('li');
-            item.innerHTML =
-                `<strong>${note.englishWord}</strong> - ${note.vietnameseMeaning}` +
-                (note.usageExample ? `<br><em>${note.usageExample}</em>` : '') +
-                (note.savedAt ? `<br><small class="note-time">${note.savedAt}</small>` : '') +
-                ` <button class="delete-note" data-index="${index}">Xóa</button>`;
-            list.appendChild(item);
-        });
+            .forEach((note) => {
+                const item = document.createElement('li');
+                item.innerHTML =
+                    `<strong>${note.englishWord}</strong> - ${note.vietnameseMeaning}` +
+                    (note.usageExample ? `<br><em>${note.usageExample}</em>` : '') +
+                    (note.savedAt ? `<br><small class="note-time">${note.savedAt}</small>` : '') +
+                    ` <button class="delete-note" data-word="${note.englishWord}">Xóa</button>`;
+                list.appendChild(item);
+            });
     }
 
     renderNotes();
@@ -60,11 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
     list.addEventListener('click', function (e) {
         const target = e.target;
         if (target.classList.contains('delete-note')) {
-            const index = parseInt(target.getAttribute('data-index'), 10);
-            const notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
-            notes.splice(index, 1);
+            const word = target.getAttribute('data-word');
+            let notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
+            notes = notes.filter(
+                (n) => n.englishWord.toLowerCase() !== word.toLowerCase()
+            );
             localStorage.setItem('vocabNotes', JSON.stringify(notes));
-            renderNotes();
+            renderNotes(searchInput ? searchInput.value.trim() : '');
         }
     });
 
