@@ -5,6 +5,6 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "vercel": "^44.2.3"
+    "vercel": "^44.2.5"
   }
 }

@@ -8,8 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
 
         const englishWord = document.getElementById('english-word').value.trim();
-        const vietnameseMeaning = document.getElementById('vietnamese-meaning').value.trim();
-        const usageExample = document.getElementById('usage-example').value.trim();
+        const vietnameseMeaning = document
+            .getElementById('vietnamese-meaning')
+            .value.trim();
+        const usageExample = document
+            .getElementById('usage-example')
+            .value.trim();
 
         // Retrieve existing notes from localStorage or create an empty array
         const notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
