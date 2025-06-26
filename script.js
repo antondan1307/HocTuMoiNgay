@@ -3,13 +3,18 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form');
     const list = document.getElementById('notes-list');
+    const searchInput = document.getElementById('search');
     if (!form || !list) return;
 
     // Render saved notes to the list
-    function renderNotes() {
+    function renderNotes(filter = '') {
         const notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
         list.innerHTML = '';
-        notes.forEach((note, index) => {
+        notes
+            .filter((n) =>
+                n.englishWord.toLowerCase().includes(filter.toLowerCase())
+            )
+            .forEach((note, index) => {
             const item = document.createElement('li');
             item.innerHTML =
                 `<strong>${note.englishWord}</strong> - ${note.vietnameseMeaning}` +
@@ -21,6 +26,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     renderNotes();
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function (e) {
+            renderNotes(e.target.value.trim());
+        });
+    }
 
     list.addEventListener('click', function (e) {
         const target = e.target;
@@ -51,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
             englishWord,
             vietnameseMeaning,
             usageExample,
-            savedAt: new Date().toLocaleString('vi-VN'),
+            savedAt: new Date().toLocaleDateString('vi-VN'),
         });
         // Save back to localStorage
         localStorage.setItem('vocabNotes', JSON.stringify(notes));
