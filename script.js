@@ -112,16 +112,26 @@ document.addEventListener('DOMContentLoaded', function () {
         const target = e.target;
         if (target.classList.contains('delete-note')) {
             const word = target.getAttribute('data-word');
+            const li = target.closest('li');
             showConfirm(`Bạn có chắc muốn xóa từ "${word}" không?`, (ok) => {
-                if (!ok) return;
+                if (!ok || !li) return;
 
-                let notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
-                notes = notes.filter(
-                    (n) => n.englishWord.toLowerCase() !== word.toLowerCase()
+                li.classList.add('fade-out');
+                li.addEventListener(
+                    'transitionend',
+                    () => {
+                        let notes = JSON.parse(
+                            localStorage.getItem('vocabNotes') || '[]'
+                        );
+                        notes = notes.filter(
+                            (n) => n.englishWord.toLowerCase() !== word.toLowerCase()
+                        );
+                        localStorage.setItem('vocabNotes', JSON.stringify(notes));
+                        renderNotes(searchInput ? searchInput.value.trim() : '');
+                        showNotification('Đã xóa ghi chú!', 'success');
+                    },
+                    { once: true }
                 );
-                localStorage.setItem('vocabNotes', JSON.stringify(notes));
-                renderNotes(searchInput ? searchInput.value.trim() : '');
-                showNotification('Đã xóa ghi chú!', 'success');
             });
         }
     });
