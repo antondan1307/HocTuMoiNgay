@@ -218,7 +218,7 @@ button:hover {
 
 @media (max-width: 600px) {
     body {
-        padding: 20px 15px 0;
+        padding:0 15px;
         justify-content: flex-start;
     form,
     #saved-notes {
