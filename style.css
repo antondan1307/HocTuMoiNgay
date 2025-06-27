@@ -229,26 +229,8 @@ button:hover {
     button {
         font-size: 14px;
     }
-        width: 40px;
-        height: 40px;
-    .sticker-book {
-        top: 10px;
-        left: 10px;
-    }
-    .sticker-pen {
-        right: 10px;
-    }
-    .sticker-laptop {
-        bottom: 10px;
-        left: 10px;
-    }
-    .sticker-board {
-        right: 10px;
-    }
-
-    /* Move stickers to top and bottom on small screens */
-    .sticker {
-        left: 50%;
+    /* Hide stickers completely on small screens */
+        display: none;
         animation: none;
     }
     .sticker-left {
