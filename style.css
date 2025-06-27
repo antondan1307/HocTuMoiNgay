@@ -175,13 +175,13 @@ button:hover {
     border: 1px solid #8FBC8F;
     text-align: center;
     font-weight: bold;
-#notification.confirm {
-    max-width: calc(100% - 4px);
+    overflow-wrap: break-word;
+    max-width: calc(100% - 10px);
 }
 
     font-size: 12px;
     #notification.confirm {
-        max-width: calc(100% - 4px);
+        max-width: calc(100% - 10px);
     }
     transform: translate(-50%, -150%);
     opacity: 0;
