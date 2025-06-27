@@ -56,7 +56,7 @@ body {
     right: 10px;
     z-index: 1100;
     display: flex;
-    gap: 8px;
+    gap: 6px;
     align-items: center;
 }
 
@@ -89,6 +89,19 @@ body {
     background-color: #0f6ad1;
 }
 
+#tiktok-link {
+    background-color: #000;
+    border: none;
+}
+
+#tiktok-link svg {
+    fill: #fff;
+}
+
+#tiktok-link:hover {
+    background-color: #111;
+}
+
 .toolbar .icon-link svg {
     width: 16px;
     height: 16px;
@@ -101,6 +114,22 @@ body {
 }
 
 .toolbar a:hover {
+    background-color: #8FBC8F;
+    color: #fff;
+}
+
+#feedback-link {
+    border: 1px solid #8FBC8F;
+    color: #2E8B57;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 6px;
+}
+
+#feedback-link:hover {
     background-color: #8FBC8F;
     color: #fff;
 }
