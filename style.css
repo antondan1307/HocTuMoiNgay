@@ -186,6 +186,7 @@ button:hover {
     box-sizing: border-box;
     white-space: normal;
     word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 #notification button {
@@ -196,6 +197,13 @@ button:hover {
     padding: 2px 8px;
     font-size: 12px;
     cursor: pointer;
+}
+
+#notification .confirm-buttons {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 #notification button:hover {
@@ -218,6 +226,7 @@ button:hover {
 
 @media (max-width: 600px) {
     body {
+        max-width: calc(100% - 20px);
         padding:0 10px;
         justify-content: flex-start;
     form,
