@@ -62,8 +62,9 @@ body > :not(.sticker) {
 
 .toolbar {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
+    margin: 10px;
     z-index: 1100;
     display: flex;
     gap: 6px;
