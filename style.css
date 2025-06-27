@@ -176,12 +176,12 @@ button:hover {
     text-align: center;
     font-weight: bold;
 #notification.confirm {
-    max-width: calc(100% - 10px);
+    max-width: calc(100% - 4px);
 }
 
     font-size: 12px;
     #notification.confirm {
-        max-width: calc(100% - 10px);
+        max-width: calc(100% - 4px);
     }
     transform: translate(-50%, -150%);
     opacity: 0;
