@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghi chú Từ Vựng Tiếng Anh</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sticker sticker-book"></div>
+    <div class="sticker sticker-pen"></div>
+    <div class="sticker sticker-laptop"></div>
+    <div class="sticker sticker-board"></div>
+    <h1>Ghi chú Từ Vựng Tiếng Anh</h1>
+    <div id="notification" class="notification"></div>
+    <form>
+        <div class="form-group">
+            <label for="english-word">Từ tiếng Anh</label>
+            <input type="text" id="english-word" name="english-word">
+        </div>
+        <div class="form-group">
+            <label for="vietnamese-meaning">Nghĩa tiếng Việt</label>
+            <input type="text" id="vietnamese-meaning" name="vietnamese-meaning">
+        </div>
+        <div class="form-group">
+            <label for="usage-example">Ví dụ sử dụng</label>
+            <textarea id="usage-example" name="usage-example"></textarea>
+        </div>
+        <button type="submit">Lưu</button>
+    </form>
+
+    <section id="saved-notes">
+        <h2>Danh sách từ đã lưu</h2>
+        <input type="text" id="search" placeholder="Tìm kiếm từ đã lưu" />
+        <ul id="notes-list"></ul>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

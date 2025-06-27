@@ -1,0 +1,247 @@
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background:
+        url('https://png.pngtree.com/background/20210716/original/pngtree-white-abstract-vector-web-background-design-picture-image_1354906.jpg')
+            center / cover no-repeat fixed,
+        linear-gradient(135deg, #F0FFF0, #B2E9DA, #D2F4EA);
+    background-size: cover, cover;
+    color: #556B2F;
+    margin: 0;
+}
+
+.sticker {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+    filter: hue-rotate(80deg) saturate(150%);
+}
+
+.sticker-book {
+    top: 20%;
+    left: 10px;
+    background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4d6.png');
+}
+
+.sticker-pen {
+    top: 20%;
+    right: 10px;
+    background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f58a.png');
+}
+
+.sticker-laptop {
+    bottom: 20%;
+    left: 10px;
+    background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4bb.png');
+}
+
+.sticker-board {
+    bottom: 20%;
+    right: 10px;
+    background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3eb.png');
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+form {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #2E8B57;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 2.5em;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    border: 1px solid #8FBC8F;
+    background-color: #F0FFF0;
+    color: #556B2F;
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #8FBC8F;
+    border: none;
+    color: #2E8B57;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2E8B57;
+    color: #F0FFF0;
+}
+
+/* Saved notes section */
+#saved-notes {
+    margin-top: 30px;
+    max-width: 400px;
+    width: 100%;
+}
+
+#search {
+    border: 1px solid #8FBC8F;
+    background-color: #F0FFF0;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#notes-list li {
+    border-bottom: 1px solid #8FBC8F;
+    padding: 8px 0;
+}
+
+.delete-note {
+    background-color: transparent;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    margin-left: 10px;
+    padding: 2px 8px;
+    font-size: 14px;
+    border-radius: 9999px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.delete-note:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.highlight-delete {
+    background-color: #ffefef;
+    transition: background-color 0.3s ease;
+}
+
+.note-time {
+    color: #2E8B57;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    padding: 10px 20px;
+    background-color: #F0FFF0;
+    border: 1px solid #8FBC8F;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    transform: translate(-50%, -150%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    z-index: 1000;
+    border-radius: 9999px;
+    display: inline-block;
+    max-width: calc(100% - 40px);
+    box-sizing: border-box;
+    white-space: normal;
+    word-break: break-word;
+}
+
+#notification button {
+    background-color: #8FBC8F;
+    border: none;
+    color: #2E8B57;
+    margin-left: 10px;
+    padding: 2px 8px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#notification button:hover {
+    background-color: #2E8B57;
+    color: #F0FFF0;
+}
+
+#notification.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+#notification.success {
+    color: #2E8B57;
+}
+
+#notification.error {
+    color: #c0392b;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 15px 0;
+        justify-content: flex-start;
+    form,
+    #saved-notes {
+        max-width: 100%;
+    }
+    input,
+    textarea,
+    button {
+        font-size: 14px;
+    }
+    /* Hide stickers completely on small screens */
+    .sticker {
+        display: none;
+        animation: none;
+    }
+    .sticker-left {
+        top: 10px;
+        transform: translateX(-50%);
+    }
+    .sticker-right {
+        top: auto;
+        bottom: 10px;
+        transform: translateX(-50%) scaleX(-1);
+    }
+}
+
