@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', function () {
         notification.className = `notification ${type} show`;
         notificationTimeout = setTimeout(() => {
             notification.classList.remove('show');
+            // Wait for the slide-up animation to finish then clear text and classes
+            setTimeout(() => {
+                notification.className = 'notification';
+                notification.textContent = '';
+            }, 400);
             notificationTimeout = null;
         }, 3000);
     }
@@ -33,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         notification.className = 'notification confirm show';
 
         function cleanup() {
-            notification.classList.remove('show', 'confirm');
+            notification.classList.remove('show', 'confirm', 'success', 'error');
             notification.innerHTML = '';
         }
 
