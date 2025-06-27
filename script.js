@@ -146,13 +146,30 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const englishWord = document.getElementById('english-word').value.trim();
-        const vietnameseMeaning = document
-            .getElementById('vietnamese-meaning')
-            .value.trim();
+        const englishInput = document.getElementById('english-word');
+        const vietnameseInput = document.getElementById('vietnamese-meaning');
+        const englishWord = englishInput.value.trim();
+        const vietnameseMeaning = vietnameseInput.value.trim();
         const usageExample = document
             .getElementById('usage-example')
             .value.trim();
+
+        if (!englishWord || !vietnameseMeaning) {
+            if (!englishWord && !vietnameseMeaning) {
+                showNotification(
+                    'Bạn chưa nhập từ tiếng Anh và nghĩa tiếng Việt!',
+                    'error'
+                );
+                englishInput.focus();
+            } else if (!englishWord) {
+                showNotification('Bạn chưa nhập từ tiếng Anh!', 'error');
+                englishInput.focus();
+            } else {
+                showNotification('Bạn chưa nhập nghĩa tiếng Việt!', 'error');
+                vietnameseInput.focus();
+            }
+            return;
+        }
 
         // Retrieve existing notes from localStorage or create an empty array
         const notes = JSON.parse(localStorage.getItem('vocabNotes') || '[]');
