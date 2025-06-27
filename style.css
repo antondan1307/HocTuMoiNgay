@@ -230,6 +230,7 @@ button:hover {
         font-size: 14px;
     }
     /* Hide stickers completely on small screens */
+    .sticker {
         display: none;
         animation: none;
     }
