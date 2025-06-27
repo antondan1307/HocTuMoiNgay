@@ -175,7 +175,14 @@ button:hover {
     border: 1px solid #8FBC8F;
     text-align: center;
     font-weight: bold;
+#notification.confirm {
+    max-width: calc(100% - 10px);
+}
+
     font-size: 12px;
+    #notification.confirm {
+        max-width: calc(100% - 10px);
+    }
     transform: translate(-50%, -150%);
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.5s ease;

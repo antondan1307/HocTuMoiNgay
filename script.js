@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
             notificationTimeout = null;
         }
         notification.innerHTML = `<span class="confirm-text">${msg}</span><div class="confirm-buttons"><button id="confirm-yes">Có</button><button id="confirm-no">Không</button></div>`;
-        notification.className = 'notification show';
+        notification.className = 'notification confirm show';
 
         function cleanup() {
-            notification.classList.remove('show');
+            notification.classList.remove('show', 'confirm');
             notification.innerHTML = '';
         }
 
