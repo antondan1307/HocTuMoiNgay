@@ -71,9 +71,23 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
 .toolbar .icon-link {
     padding: 6px;
     border-radius: 50%;
+}
+
+#facebook-link {
+    background-color: #1877f2;
+    border: none;
+}
+
+#facebook-link svg {
+    fill: #fff;
+}
+
+#facebook-link:hover {
+    background-color: #0f6ad1;
 }
 
 .toolbar .icon-link svg {
