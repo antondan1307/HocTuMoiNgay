@@ -3,10 +3,4 @@
   "version": "1.0.0",
   "description": "Ứng dụng ghi chú từ vựng",
   "private": true,
-  "scripts": {
-    "build": "vercel build"
-  },
-  "dependencies": {
-    "vercel": "^44.2.5"
-  }
 }
