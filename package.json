@@ -2,8 +2,10 @@
   "name": "hoc-tu-moi-ngay",
   "version": "1.0.0",
   "description": "Ứng dụng ghi chú từ vựng",
-    "build": "npx vercel build",
   "private": true,
+  "scripts": {
+    "build": "vercel build"
+  },
   "dependencies": {
     "vercel": "^44.2.5"
   }

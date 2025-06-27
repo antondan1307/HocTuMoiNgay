@@ -22,31 +22,41 @@ body {
     background-size: contain;
     opacity: 0.7;
     pointer-events: none;
-    animation: float 6s ease-in-out infinite;
+    animation: move-around 20s linear infinite;
     filter: hue-rotate(80deg) saturate(150%);
+    z-index: 0;
+}
+
+body > :not(.sticker) {
+    position: relative;
+    z-index: 1;
 }
 
 .sticker-book {
-    top: 20%;
+    top: 10px;
     left: 10px;
+    animation-delay: 0s;
     background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4d6.png');
 }
 
 .sticker-pen {
-    top: 20%;
+    top: 10px;
     right: 10px;
+    animation-delay: 5s;
     background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f58a.png');
 }
 
 .sticker-laptop {
-    bottom: 20%;
+    bottom: 10px;
     left: 10px;
+    animation-delay: 10s;
     background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4bb.png');
 }
 
 .sticker-board {
-    bottom: 20%;
+    bottom: 10px;
     right: 10px;
+    animation-delay: 15s;
     background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3eb.png');
 }
 
@@ -56,7 +66,7 @@ body {
     right: 10px;
     z-index: 1100;
     display: flex;
-    gap: 8px;
+    gap: 6px;
     align-items: center;
 }
 
@@ -89,6 +99,19 @@ body {
     background-color: #0f6ad1;
 }
 
+#tiktok-link {
+    background-color: #000;
+    border: none;
+}
+
+#tiktok-link svg {
+    fill: #fff;
+}
+
+#tiktok-link:hover {
+    background-color: #111;
+}
+
 .toolbar .icon-link svg {
     width: 16px;
     height: 16px;
@@ -105,12 +128,37 @@ body {
     color: #fff;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
+#feedback-link {
+    border: 1px solid #8FBC8F;
+    color: #2E8B57;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 6px;
+}
+
+#feedback-link:hover {
+    background-color: #8FBC8F;
+    color: #fff;
+}
+
+@keyframes move-around {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(calc(100vw - 60px), 0);
     }
     50% {
-        transform: translateY(-10px);
+        transform: translate(calc(100vw - 60px), calc(100vh - 60px));
+    }
+    75% {
+        transform: translate(0, calc(100vh - 60px));
+    }
+    100% {
+        transform: translate(0, 0);
     }
 }
 
