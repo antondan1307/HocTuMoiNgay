@@ -89,6 +89,19 @@ body {
     background-color: #0f6ad1;
 }
 
+#tiktok-link {
+    background-color: #000;
+    border: none;
+}
+
+#tiktok-link svg {
+    fill: #fff;
+}
+
+#tiktok-link:hover {
+    background-color: #111;
+}
+
 .toolbar .icon-link svg {
     width: 16px;
     height: 16px;
