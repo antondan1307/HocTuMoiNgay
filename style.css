@@ -118,6 +118,26 @@ body {
     color: #fff;
 }
 
+.feedback-section {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#feedback-link {
+    border: 1px solid #8FBC8F;
+    color: #2E8B57;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#feedback-link:hover {
+    background-color: #8FBC8F;
+    color: #fff;
+}
+
 @keyframes float {
     0%, 100% {
         transform: translateY(0);
