@@ -50,6 +50,29 @@ body {
     background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3eb.png');
 }
 
+.toolbar {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1100;
+}
+
+.toolbar a {
+    background-color: #F0FFF0;
+    border: 1px solid #8FBC8F;
+    color: #2E8B57;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toolbar a:hover {
+    background-color: #8FBC8F;
+    color: #fff;
+}
+
 @keyframes float {
     0%, 100% {
         transform: translateY(0);
@@ -233,6 +256,11 @@ button:hover {
 }
 
 @media (max-width: 600px) {
+
+    .toolbar a {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
     body {
         max-width: calc(100% - 20px);
         padding:0 10px;
