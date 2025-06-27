@@ -55,6 +55,9 @@ body {
     top: 10px;
     right: 10px;
     z-index: 1100;
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
 .toolbar a {
@@ -66,6 +69,22 @@ body {
     text-decoration: none;
     font-size: 14px;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toolbar .icon-link {
+    padding: 6px;
+    border-radius: 50%;
+}
+
+.toolbar .icon-link svg {
+    width: 16px;
+    height: 16px;
+    fill: #2E8B57;
+    display: block;
+}
+
+.toolbar .icon-link:hover svg {
+    fill: #fff;
 }
 
 .toolbar a:hover {
@@ -260,6 +279,9 @@ button:hover {
     .toolbar a {
         font-size: 12px;
         padding: 4px 10px;
+    }
+    .toolbar .icon-link {
+        padding: 4px;
     }
     body {
         max-width: calc(100% - 20px);
